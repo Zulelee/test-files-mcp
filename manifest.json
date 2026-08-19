@@ -1,0 +1,33 @@
+{
+  "manifest_version": "0.4",
+  "name": "test-files-mcp",
+  "display_name": "Test Files MCP",
+  "version": "0.1.0",
+  "description": "Generate test files for upload testing, QA, parsers, validators, and edge cases.",
+  "author": {
+    "name": "Zulelee",
+    "email": "hey.zulele@gmail.com",
+    "url": "https://github.com/Zulelee"
+  },
+  "homepage": "https://github.com/Zulelee/test-files-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zulelee/test-files-mcp"
+  },
+  "license": "MIT",
+  "keywords": ["mcp", "testing", "fixtures", "qa", "file-upload"],
+  "server": {
+    "type": "uv",
+    "entry_point": "src/test_files_mcp/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run", "--directory", "${__dirname}", "test-files-mcp"]
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "linux", "win32"],
+    "runtimes": {
+      "python": ">=3.11"
+    }
+  }
+}

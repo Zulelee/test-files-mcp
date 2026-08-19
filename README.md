@@ -5,6 +5,40 @@ Generate test files directly from your AI coding assistant.
 Need a 20 MB JPEG? A 100,000-row CSV? A corrupted PDF?
 Ask your MCP client and Test Files MCP creates it locally.
 
+## One-click install
+
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=test-files&config=eyJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyItLWZyb20iLCJnaXQraHR0cHM6Ly9naXRodWIuY29tL1p1bGVsZWUvdGVzdC1maWxlcy1tY3AiLCJ0ZXN0LWZpbGVzLW1jcCJdfQ==)
+[![Add to Claude](https://img.shields.io/badge/Claude-Install%20Extension-D97757?style=for-the-badge&logo=anthropic&logoColor=white)](https://github.com/Zulelee/test-files-mcp/raw/main/dist/test-files-mcp.mcpb)
+
+| Client | What happens when you click |
+|--------|----------------------------|
+| **Cursor** | Opens Cursor and prompts you to add the MCP server |
+| **Claude Desktop** | Downloads `test-files-mcp.mcpb` — double-click it to install |
+
+> Claude Desktop has no URL deeplink for MCP JSON config. The [`.mcpb` bundle](https://claude.com/docs/connectors/building/mcpb) is Anthropic's official one-click install format for local servers.
+
+<details>
+<summary>Manual Claude Desktop config</summary>
+
+Open **Settings → Developer → Edit Config** and add:
+
+```json
+{
+  "mcpServers": {
+    "test-files": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/Zulelee/test-files-mcp",
+        "test-files-mcp"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
 ## Why this exists
 
 Testing file uploads, parsers, validators, and storage limits usually means hunting for sample files or writing one-off scripts. Test Files MCP lets you describe what you need in plain language and get a real file on disk with useful metadata back.
@@ -66,6 +100,20 @@ uv run test-files-mcp
 ```
 
 ## Cursor setup
+
+This repository follows the [Agent Plugins](https://open-plugins.com) standard. Plugin components live at the repo root:
+
+```text
+.plugin/plugin.json      # Portable manifest
+.cursor-plugin/plugin.json
+.mcp.json               # MCP server (stdio via uv)
+skills/                 # Agent skills
+commands/               # Slash commands
+agents/                 # Subagents
+rules/                  # Project rules
+hooks/hooks.json        # Lifecycle hooks
+.lsp.json               # Python LSP config
+```
 
 Add to your Cursor MCP settings (`.cursor/mcp.json` or Cursor Settings → MCP):
 
@@ -171,6 +219,18 @@ uv sync --group dev
 ```bash
 uv run pytest
 uv run ruff check src tests
+```
+
+### Rebuild Claude Desktop bundle
+
+```bash
+mcpb pack . dist/test-files-mcp.mcpb
+```
+
+Regenerate install badge URLs after changing MCP config:
+
+```bash
+uv run python scripts/generate-install-badges.py
 ```
 
 ### MCP Inspector

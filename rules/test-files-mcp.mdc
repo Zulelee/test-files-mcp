@@ -1,0 +1,15 @@
+---
+description: Conventions for developing and extending the Test Files MCP plugin.
+globs: src/**/*.py
+alwaysApply: false
+---
+
+# Test Files MCP Development Rules
+
+- Keep generators lightweight; stream large CSV and binary files to disk in chunks.
+- Use shared path utilities in `utils/paths.py` for all filesystem operations.
+- Return structured `ToolSuccess` / `ToolError` responses from generators; never fake success.
+- Enforce safety limits from `config.py`; return clear errors instead of clamping values.
+- MCP tool handlers in `server.py` should delegate to generator modules without duplicating logic.
+- Use deterministic random generation when `seed` is provided.
+- Never modify source files during corruption; always create a new corrupted copy.

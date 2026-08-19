@@ -1,0 +1,29 @@
+{
+  "name": "test-files-mcp",
+  "displayName": "Test Files MCP",
+  "version": "0.1.0",
+  "description": "Generate test files directly from your AI coding assistant. Images, PDFs, CSVs, ZIPs, corrupted files, and edge-case fixtures.",
+  "author": {
+    "name": "Zulelee",
+    "email": "hey.zulele@gmail.com",
+    "url": "https://github.com/Zulelee"
+  },
+  "homepage": "https://github.com/Zulelee/test-files-mcp",
+  "repository": "https://github.com/Zulelee/test-files-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "testing",
+    "fixtures",
+    "qa",
+    "file-upload",
+    "cursor"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "commands": "./commands/",
+  "agents": "./agents/",
+  "rules": "./rules/",
+  "hooks": "./hooks/hooks.json",
+  "lspServers": "./.lsp.json"
+}

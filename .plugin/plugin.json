@@ -1,0 +1,29 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "test-files-mcp",
+  "version": "0.1.0",
+  "description": "Generate test files for upload testing, QA, parsers, validators, and edge cases.",
+  "author": {
+    "name": "Zulelee",
+    "email": "hey.zulele@gmail.com",
+    "url": "https://github.com/Zulelee"
+  },
+  "homepage": "https://github.com/Zulelee/test-files-mcp",
+  "repository": "https://github.com/Zulelee/test-files-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "testing",
+    "fixtures",
+    "qa",
+    "file-upload"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "commands": "./commands/",
+  "agents": "./agents/",
+  "rules": "./rules/",
+  "hooks": "./hooks/hooks.json",
+  "lspServers": "./.lsp.json"
+}
