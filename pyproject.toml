@@ -6,7 +6,7 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
 authors = [
-    { name = "Zulelee", email = "zulekhaimtiaz1014@gmail.com" },
+    { name = "Zulelee", email = "hey.zulele@gmail.com" },
 ]
 keywords = [
     "mcp",
